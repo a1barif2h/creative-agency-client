@@ -9,7 +9,10 @@ import { Col, Container, Row } from "react-bootstrap";
 const ClientBaners = () => {
   return (
     <Container className="mt-5 pt-5">
-      <Row className="d-flex justify-content-between">
+      <Row
+        style={{ cursor: "pointer" }}
+        className="d-flex justify-content-between"
+      >
         <Col md={2}>
           <img style={{ width: "140px" }} src={slack} alt="" />
         </Col>
