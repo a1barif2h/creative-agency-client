@@ -1,0 +1,17 @@
+.nav-link {
+  padding: 0;
+  font-weight: bold;
+  color: #474747;
+}
+
+.nav-link:hover {
+  border-bottom: 5px solid #7ab259;
+}
+
+.nav-link:first-child:active {
+  border-bottom: 5px solid #7ab259;
+}
+
+.nav-link:last-child:hover {
+  border-bottom: 0;
+}
