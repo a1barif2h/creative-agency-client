@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import nash from "../../../images/nash.png";
 import miriam from "../../../images/miriam.png";
 import bria from "../../../images/bria.png";
+import loader from "../../../images/logos/loadder.gif";
 import { Col, Container, Row } from "react-bootstrap";
 import FeedbackCard from "../FeedbackCard/FeedbackCard";
 
@@ -29,6 +30,14 @@ const feedbackData = [
   },
 ];
 const Feedback = () => {
+  const [allFeedbacks, setAllFeedbacks] = useState([]);
+  useEffect(() => {
+    fetch("https://lit-reaches-99351.herokuapp.com/show-feedbacks")
+      .then((res) => res.json())
+      .then((result) => {
+        setAllFeedbacks(result.slice(-6));
+      });
+  }, []);
   return (
     <section className="mt-5 pt-3 mb-5 pb-5">
       <Container>
@@ -36,11 +45,15 @@ const Feedback = () => {
           Clients <span style={{ color: "#7AB259" }}>Feedback</span>
         </h2>
         <Row className="d-flex justify-content-between mt-5 pt-4">
-          {feedbackData.map((feedback) => (
-            <Col md={4}>
-              {" "}
-              <FeedbackCard feedback={feedback}></FeedbackCard>{" "}
-            </Col>
+          {allFeedbacks.length < 1 && (
+            <img
+              src={loader}
+              style={{ width: "300px", margin: "auto" }}
+              alt=""
+            />
+          )}
+          {allFeedbacks.map((feedback) => (
+            <FeedbackCard key={feedback._id} feedback={feedback}></FeedbackCard>
           ))}
         </Row>
       </Container>

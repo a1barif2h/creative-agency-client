@@ -46,7 +46,7 @@ const Footer = () => {
           </Col>
         </Row>
         <p className="text-center mt-5 pt-5">
-          <small>copyright Orange labs 2020</small>
+          <small>copyright Orange labs {new Date().getFullYear()}</small>
         </p>
       </Container>
     </footer>

@@ -8,6 +8,7 @@ import Services from "../Services/Services";
 import WorksSample from "../WorksSample/WorksSample";
 import "./Home.css";
 const Home = () => {
+  document.title = "Creative Agency";
   return (
     <div>
       <div className="home-container">

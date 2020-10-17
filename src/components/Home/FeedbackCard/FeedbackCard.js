@@ -1,26 +1,52 @@
-import React from "react";
+import React, { useContext } from "react";
+import { Card, Col } from "react-bootstrap";
+import { LocalContext } from "../../../App";
+import "./FeedbackCard.css";
 
 const FeedbackCard = ({ feedback }) => {
+  const [loggedInUser] = useContext(LocalContext);
+  const handelDeleteFeedback = (event) => {
+    fetch("https://lit-reaches-99351.herokuapp.com/delete-feedback", {
+      method: "DELETE",
+      headers: { "Content-Type": "application/json", id: feedback._id },
+    })
+      .then((res) => res.json())
+      .then((result) => {
+        console.log("deleted");
+      });
+  };
   return (
-    <section
-      style={{
-        width: "370px",
-        height: "212px",
-        border: "1px solid #dddddd",
-        padding: "35px",
-      }}
-    >
-      <div className="d-flex">
-        <div className="mr-2">
-          <img style={{ width: "45px" }} src={feedback.img} alt="" />
-        </div>
-        <div style={{ marginTop: "4px" }}>
-          <h6 style={{ fontWeight: "bold" }}> {feedback.name} </h6>
-          <p style={{ marginTop: "-10px" }}> {feedback.designation} </p>
-        </div>
-      </div>
-      <p> {feedback.massage} </p>
-    </section>
+    <Col xs={12} md={6} lg={4} className="text-center">
+      <Card
+        onDoubleClick={handelDeleteFeedback}
+        className="feedback-details-card mt-5"
+        style={{ width: "90%", margin: "auto" }}
+      >
+        <Card.Body>
+          <div className="d-flex feedback-top">
+            <img
+              style={{ width: "64px", height: "64px", borderRadius: "50%" }}
+              src={feedback.img}
+              alt=""
+            />
+            <div className="ml-3 mt-1">
+              <h5 style={{ fontSize: "20px", fontWeight: "600" }}>
+                {feedback.name}
+              </h5>
+              <p style={{ fontSize: "16px", fontWeight: "600" }}>
+                {feedback.designationAndCompany}
+              </p>
+            </div>
+          </div>
+          <div className="feedback-description">
+            <p className="mt-2" style={{ fontSize: "16px", fontWeight: "400" }}>
+              {" "}
+              {feedback.description}
+            </p>
+          </div>
+        </Card.Body>
+      </Card>
+    </Col>
   );
 };
 
