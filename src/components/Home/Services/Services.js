@@ -13,7 +13,6 @@ const Services = () => {
       .then((res) => res.json())
       .then((result) => {
         setAllService(result);
-        console.log(result);
       });
   }, []);
 
@@ -33,8 +32,8 @@ const Services = () => {
           )}
 
           {allService.map((service) => (
-            <Col md={4}>
-              <ServicesCard key={service._id} service={service}></ServicesCard>
+            <Col key={service._id} md={4}>
+              <ServicesCard service={service}></ServicesCard>
             </Col>
           ))}
         </Row>

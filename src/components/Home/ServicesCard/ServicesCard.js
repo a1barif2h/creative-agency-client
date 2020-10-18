@@ -10,7 +10,6 @@ const ServicesCard = ({ service }) => {
     setLoggedInUser({ ...loggedInUser, service: service });
     history.push("/dashboard/order");
   };
-  console.log(service);
   return (
     <div onClick={handelCardOrder} className="text-center card-container">
       <div className="pb-3">
