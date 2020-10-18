@@ -6,26 +6,6 @@ import { Col, Container, Row } from "react-bootstrap";
 import ServicesCard from "../ServicesCard/ServicesCard";
 import loader from "../../../images/logos/loadder.gif";
 
-const servicesData = [
-  {
-    title: "Web & Mobile design",
-    description:
-      "We craft stunning and amazing web UI, using a well drrafted UX to fit your product.",
-    img: webMobile,
-  },
-  {
-    title: "Graphic design",
-    description:
-      "Amazing flyers, social media posts and brand representations that would make your brand stand out.",
-    img: graphics,
-  },
-  {
-    title: "Web development",
-    description:
-      "With well written codes, we build amazing apps for all platforms, mobile and web apps in general.",
-    img: webDevelopment,
-  },
-];
 const Services = () => {
   const [allService, setAllService] = useState([]);
   useEffect(() => {
@@ -54,15 +34,9 @@ const Services = () => {
 
           {allService.map((service) => (
             <Col md={4}>
-              <ServicesCard service={service}></ServicesCard>
+              <ServicesCard key={service._id} service={service}></ServicesCard>
             </Col>
           ))}
-
-          {/* {servicesData.map((service) => (
-            <Col md={4}>
-              <ServicesCard service={service}></ServicesCard>
-            </Col>
-          ))} */}
         </Row>
       </Container>
     </section>

@@ -1,34 +1,8 @@
 import React, { useEffect, useState } from "react";
-import nash from "../../../images/nash.png";
-import miriam from "../../../images/miriam.png";
-import bria from "../../../images/bria.png";
 import loader from "../../../images/logos/loadder.gif";
 import { Col, Container, Row } from "react-bootstrap";
 import FeedbackCard from "../FeedbackCard/FeedbackCard";
 
-const feedbackData = [
-  {
-    name: "Nash Patrik",
-    designation: "CEO, Manpol",
-    massage:
-      "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Facere repellendus quisquam voluptates voluptate, dolore magnam?",
-    img: nash,
-  },
-  {
-    name: "Miriam Barron",
-    designation: "CEO, Manpol",
-    massage:
-      "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Facere repellendus quisquam voluptates voluptate, dolore magnam?",
-    img: miriam,
-  },
-  {
-    name: "Bria Malone",
-    designation: "CEO, Manpol",
-    massage:
-      "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Facere repellendus quisquam voluptates voluptate, dolore magnam?",
-    img: bria,
-  },
-];
 const Feedback = () => {
   const [allFeedbacks, setAllFeedbacks] = useState([]);
   useEffect(() => {

@@ -56,10 +56,6 @@ const AdminServiceList = () => {
             })}
           </tbody>
         </Table>
-        {/* {
-                                allService.length<1 &&
-                                <LinearProgress color='secondary' style={{width:'100%'}}/>
-                            } */}
       </Container>
     </div>
   );

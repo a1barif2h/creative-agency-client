@@ -12,7 +12,7 @@ const ServicesCard = ({ service }) => {
   };
   console.log(service);
   return (
-    <div className="text-center card-container">
+    <div onClick={handelCardOrder} className="text-center card-container">
       <div className="pb-3">
         <img
           style={{ width: "74px" }}

@@ -16,13 +16,6 @@ const SideBar = () => {
   const [loggedInUser, setLoggedInUser] = useContext(LocalContext);
   const generalService = ["Order", "Service list", "Review"];
   const adminService = ["Service list", "Add Service", "Make Admin"];
-  const history = useHistory();
-
-  // const handelLogout = () => {
-  //     setLoggedInUser({user:null})
-  //     sessionStorage.removeItem("token")
-  //     history.replace("/")
-  // }
   return (
     <div>
       <div className="mt-5">
@@ -91,42 +84,6 @@ const SideBar = () => {
               </Link>
             );
           })}
-        {/* {["Order", "Service list", "Review", "Add Service", "Make Admin"].map(
-          (item, index) => {
-            return (
-              <Link
-                style={{
-                  color: `${
-                    window.location.pathname ==
-                    "/dashboard/" + item.toLowerCase().split(" ").join("-")
-                      ? "#009444"
-                      : "black"
-                  }`,
-                }}
-                to={`/dashboard/${item.toLowerCase().split(" ").join("-")}`}
-              >
-                <div className="d-flex">
-                  {index == 0 && <FontAwesomeIcon icon={faShoppingCart} />}
-                  {index == 1 && <FontAwesomeIcon icon={faHdd} />}
-                  {index == 2 && <FontAwesomeIcon icon={faCommentDots} />}
-                  {index == 3 && <FontAwesomeIcon icon={faPlus} />}
-                  {index == 4 && <FontAwesomeIcon icon={faUserPlus} />}
-                  <p
-                    className="ml-2"
-                    style={{
-                      fontWeight: "bold",
-                      fontSize: "16px",
-                      marginTop: "-5px",
-                    }}
-                  >
-                    {" "}
-                    {item}{" "}
-                  </p>
-                </div>
-              </Link>
-            );
-          }
-        )} */}
       </div>
     </div>
   );

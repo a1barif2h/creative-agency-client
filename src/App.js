@@ -1,7 +1,6 @@
 import React, { createContext, useEffect, useState } from "react";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import AddService from "./components/Dashboard/AddService/AddService";
-import Dashboard from "./components/Dashboard/Dashboard/Dashboard";
 import MakeAdmin from "./components/Dashboard/MakeAdmin/MakeAdmin";
 import Order from "./components/Dashboard/Order/Order";
 import Review from "./components/Dashboard/Review/Review";
@@ -63,10 +62,6 @@ function App() {
           <PrivateRoute exact path="/dashboard/review">
             <Review></Review>
           </PrivateRoute>
-
-          {/* <Route exact path="/dashboard/add-service">
-            <AddService></AddService>
-          </Route> */}
 
           <PrivateRoute exact path="/dashboard/add-service">
             <AddService></AddService>
